@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/data-report">Data Report</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to Lyrics Generator</h1>
+        <div class="note">
+            <p>Note: This is just a basic model with a small dataset.</p>
+        </div>
+        <form id="lyrics-form" action="/generate-lyrics" method="post">
+            <label for="lyrics-input">Enter some text:</label><br>
+            <textarea id="lyrics-input" name="lyrics-input" rows="4" cols="50"></textarea><br>
+            <button type="submit">Generate Lyrics</button>
+        </form>
+        <div id="generated-lyrics">
+            {% if generated_lyrics %}
+                <p>{{ generated_lyrics }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
